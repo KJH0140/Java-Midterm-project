@@ -5,29 +5,36 @@ import java.util.Scanner;
 
 public class Main
 {
-    public static void main(String[] args)
-    {
+    public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
 
-        // 메뉴 출력하고 선택 받기
-        System.out.println("메뉴");
-        System.out.println("1. 강의목록 확인");
-        System.out.println("2. 강의목록 수정");
-        System.out.println("번호 입력: ");
+        while (true)
+        {
+            // 메뉴 출력하고 선택 받기
+            System.out.println("\n메뉴");
+            System.out.println("1. 강의목록 확인");
+            System.out.println("2. 강의목록 수정");
+            System.out.println("3. 종료");
+            System.out.println("번호 입력: ");
 
-        int menuChoice = sc.nextInt();
-        sc.nextLine();
+            int menuChoice = sc.nextInt();
+            sc.nextLine();
 
-        // 선택에 따라 출력
-        if (menuChoice == 1)
-        {
-            showLectures();
-        } else if (menuChoice == 2)
-        {
-            saveLectureFile(sc);
-        } else
-        {
-            System.out.println("잘못된 입력");
+            // 선택에 따라 출력
+            if (menuChoice == 1)
+            {
+                showLectures();
+            } else if (menuChoice == 2)
+            {
+                saveLectureFile(sc);
+            } else if (menuChoice == 3)
+            {
+                System.out.println("프로그램 종료.");
+                break;
+            } else
+            {
+                System.out.println("잘못된 입력");
+            }
         }
     }
 
