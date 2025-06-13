@@ -82,10 +82,13 @@ public class Main
             System.out.print(daysOfTheWeek[i] + "시작 시간 입력 (예: 09:00): ");
             String time = scanner.nextLine();
 
+            System.out.print(daysOfTheWeek[i] + "강의실 입력 (예: 06-211): ");
+            String classroom = scanner.nextLine();
+
             // 입력 들어온 것이 비어있지 않을 때 내용 저장
             if (!name.equals("") && !time.equals(""))
             {
-                content += daysOfTheWeek[i] + "," + name + "," + time + "\n";
+                content += daysOfTheWeek[i] + "," + name + "," + time + "," + classroom + "\n";
             } else
             {
                 System.out.println("저장 실패.");
@@ -132,13 +135,14 @@ public class Main
                     String line = reader.nextLine();
                     String[] parts = line.split(",");
 
-                    // 내용이 정확히 3개일 때만
-                    if (parts.length == 3)
+                    // 내용이 정확히 4개일 때만
+                    if (parts.length == 4)
                     {
                         String dOTW = parts[0]; // day of the week 요일
                         String name = parts[1]; // 강의
                         String time = parts[2]; // 강의 시작 시간
-                        System.out.println(dOTW + "요일: " + name + " / 시작 시간: " + time);
+                        String classroom = parts[3]; // 강의실
+                        System.out.println(dOTW + "요일: " + name + " / 시작 시간: " + time + " / 강의실: " + classroom + "호");
                     }
                 }
                 reader.close();
