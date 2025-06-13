@@ -15,7 +15,7 @@ public class Main
             System.out.println("\n메뉴");
             System.out.println("1. 강의목록 확인");
             System.out.println("2. 강의목록 수정");
-            System.out.println("3. 종료");
+            System.out.println("3. 종료\n");
             System.out.println("번호 입력: ");
 
             int menuChoice = sc.nextInt();
@@ -82,7 +82,8 @@ public class Main
         String[] daysOfTheWeek = {"월", "화", "수", "목", "금"};
         String content = "";
 
-        for (int i = 0; i < daysOfTheWeek.length; i++) {
+        for (int i = 0; i < daysOfTheWeek.length; i++)
+        {
             String day = daysOfTheWeek[i];
 
             System.out.print("\n" + day + "요일에 입력할 강의 수: ");
@@ -90,7 +91,8 @@ public class Main
             int count = sc.nextInt();
             sc.nextLine();
 
-            for (int j = 0; j < count; j++) {
+            for (int j = 0; j < count; j++)
+            {
                 System.out.println("\n" + day + "요일 강의 " + (j + 1) + " 번째");
 
                 System.out.print(daysOfTheWeek[i] + "요일 강의 입력: ");
@@ -103,9 +105,11 @@ public class Main
                 String classroom = sc.nextLine();
 
                 // 입력 들어온 것이 비어있지 않을 때 내용 저장
-                if (!name.equals("") && !time.equals("")) {
+                if (!name.equals("") && !time.equals(""))
+                {
                     content += daysOfTheWeek[i] + "," + name + "," + time + "," + classroom + "\n";
-                } else {
+                } else
+                {
                     System.out.println("저장 실패.");
                 }
             }
@@ -116,6 +120,7 @@ public class Main
         if (!file.exists() || file.canWrite())
         {
             FileWriter writer = createFileWriter(file);
+
             // null 아니면 저장
             if (writer != null)
             {
@@ -144,7 +149,7 @@ public class Main
             if (fr != null)
             {
                 Scanner reader = new Scanner(fr);
-                System.out.println("강의 목록:");
+                System.out.println("\n강의 목록:");
 
                 while (reader.hasNextLine())
                 {
