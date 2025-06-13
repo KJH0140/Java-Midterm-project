@@ -5,7 +5,8 @@ import java.util.Scanner;
 
 public class Main
 {
-    public static void main(String[] args) {
+    public static void main(String[] args)
+    {
         Scanner sc = new Scanner(System.in);
 
         while (true)
@@ -76,29 +77,37 @@ public class Main
     }
 
     //내용 입력 받아 파일에 저장
-    public static void saveLectureFile(Scanner scanner)
+    public static void saveLectureFile(Scanner sc)
     {
         String[] daysOfTheWeek = {"월", "화", "수", "목", "금"};
         String content = "";
 
-        for (int i = 0; i < daysOfTheWeek.length; i++)
-        {
-            System.out.print(daysOfTheWeek[i] + " 강의 입력: ");
-            String name = scanner.nextLine();
+        for (int i = 0; i < daysOfTheWeek.length; i++) {
+            String day = daysOfTheWeek[i];
 
-            System.out.print(daysOfTheWeek[i] + "시작 시간 입력 (예: 09:00): ");
-            String time = scanner.nextLine();
+            System.out.print("\n" + day + "요일에 입력할 강의 수: ");
 
-            System.out.print(daysOfTheWeek[i] + "강의실 입력 (예: 06-211): ");
-            String classroom = scanner.nextLine();
+            int count = sc.nextInt();
+            sc.nextLine();
 
-            // 입력 들어온 것이 비어있지 않을 때 내용 저장
-            if (!name.equals("") && !time.equals(""))
-            {
-                content += daysOfTheWeek[i] + "," + name + "," + time + "," + classroom + "\n";
-            } else
-            {
-                System.out.println("저장 실패.");
+            for (int j = 0; j < count; j++) {
+                System.out.println("\n" + day + "요일 강의 " + (j + 1) + " 번째");
+
+                System.out.print(daysOfTheWeek[i] + "요일 강의 입력: ");
+                String name = sc.nextLine();
+
+                System.out.print("시작 시간 입력 (예: 09:00): ");
+                String time = sc.nextLine();
+
+                System.out.print("강의실 입력 (예: 06-211): ");
+                String classroom = sc.nextLine();
+
+                // 입력 들어온 것이 비어있지 않을 때 내용 저장
+                if (!name.equals("") && !time.equals("")) {
+                    content += daysOfTheWeek[i] + "," + name + "," + time + "," + classroom + "\n";
+                } else {
+                    System.out.println("저장 실패.");
+                }
             }
         }
         File file = new File("lectureList.txt");
